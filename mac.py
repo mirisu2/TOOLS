@@ -18,10 +18,12 @@ def main():
             mac_addr = mac[:8].replace('-', '')
         elif re.search('....\.....\.....', mac):
             mac_addr = mac[:8].replace('.', '')
+        elif re.search('....-....-....', mac):
+            mac_addr = mac[:8].replace('.', '')
         req = requests.get('https://macvendors.com/query/{}'.format(mac_addr), data=headers)
         print(req.text)
     except IndexError:
-        print('\nUSAGE:\n\n\t$ mac [00-60-37-99-AF-C2 or c8be.19c2.8ee0]')
+        print('\nUSAGE:\n$ mac [00-60-37-99-AF-C2 or c8be.19c2.8ee0 or 001c-f945-800b]')
         
         
 if __name__ == '__main__':
