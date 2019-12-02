@@ -16,9 +16,7 @@ def main():
         mac = sys.argv[1]
         if re.search('..-..-..-..-..-..', mac):
             mac_addr = mac[:8].replace('-', '')
-        elif re.search('....\.....\.....', mac):
-            mac_addr = mac[:8].replace('.', '')
-        elif re.search('....-....-....', mac):
+        elif re.search('....[\.-]....[\.-]....', mac):
             mac_addr = mac[:8].replace('.', '')
         req = requests.get('https://macvendors.com/query/{}'.format(mac_addr), data=headers)
         print(req.text)
