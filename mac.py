@@ -1,4 +1,3 @@
-#!/home/arty/documents/REPOSITORIES/tools/venv/bin/python3.7
 import re
 from builtins import IndexError
 import requests
