@@ -26,8 +26,8 @@ body = """
             "lte": "now"          
         }}},
         { "range": { "netflow.source_ipv4_address": {
-            "gte": "80.254.16.0",
-            "lte": "80.254.31.255"
+            "gte": "1.1.1.0",
+            "lte": "1.1.1.255"
           }}}
       ]
     }
