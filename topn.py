@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Return: top KK outgoing for last NN min and direction
 Show: source ip, bytes, packets, flow
@@ -8,10 +9,12 @@ import sys
 from elasticsearch import Elasticsearch
 from termcolor import colored
 
-direction = "destination_ipv4_address"
+
 try:
     if "out" in sys.argv[3]:
         direction = "source_ipv4_address"
+    else:
+        direction = "destination_ipv4_address"
 
     kk = sys.argv[1]
     nn = sys.argv[2]
@@ -70,4 +73,6 @@ try:
         i = i + 1
 
 except IndexError:
-    print "\nScript usage: \n\t$ {} <top> <last_min> [out|in(default)]\n".format(sys.argv[0])
+    print "\nScript usage: \n$ {} 10 15 out|in\n".format(sys.argv[0])
+
+
